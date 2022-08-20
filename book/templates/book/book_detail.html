@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<title>Book詳細</title>
-	</head>
-	<body>
-		{{ book.category }} {{ book.title }} {{ book.text }}
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}書籍詳細{% endblock %}
+
+{% block content %}
+<div class="card">
+	<h5 class="card-header">{{ book.title }}</h5>
+	<div class="card-body">
+		<p class="card-text">{{ book.text }}</p>
+		<a href="#" class="btn btn-primary">ボタン</a>
+		<h6 class="card-header">{{ book.category }}</h6>
+	</div>
+</div>
+{% endblock content %}
