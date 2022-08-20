@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<title>Book一覧</title>
+	</head>
+	<body>
+		{% for item in book_list %}
+		<ul>
+			<li>{{ item.title }}</li>
+			<li>{{ item.text }}</li>
+			<li>{{ item.category }}</li>
+		</ul>
+		{% endfor %}
+	</body>
+</html>
