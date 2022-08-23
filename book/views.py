@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Book
 
 class ListBookView(ListView):
@@ -43,3 +43,18 @@ class CreateBookView(CreateView):
   fields = ('title', 'text', 'category')
   # リダイレクト先
   success_url = reverse_lazy('list-book')
+
+class DeleteBookView(DeleteView):
+  """削除画面のビュー
+
+  Args:
+      DeleteView (_type_): DeleteView
+  """
+  # HTMLファイル名
+  template_name: str = 'book/book_confirm_delete.html'
+  # 使用するテーブル
+  model = Book
+  # リダイレクト先
+  success_url = reverse_lazy('list-book')
+  # テンプレートで使用するオブジェクト名
+  context_object_name: str = 'book'
