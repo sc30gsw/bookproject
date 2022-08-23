@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<title>Book一覧</title>
-	</head>
-	<body>
-		{% for item in book_list %}
-		<ul>
-			<li>{{ item.title }}</li>
-			<li>{{ item.text }}</li>
-			<li>{{ item.category }}</li>
-		</ul>
-		{% endfor %}
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}書籍一覧{% endblock %}
+
+{% block h1 %}書籍一覧{% endblock %}
+{% block content %}
+{% for item in book_list %}
+<div class="card">
+	<h5 class="card-header">{{ item.title }}</h5>
+	<div class="card-body">
+		<p class="card-text">{{ item.text }}</p>
+		<a href="{% url 'detail-book' item.pk %}" class="btn btn-primary">詳細へ</a>
+		<h6 class="card-title">{{ item.category }}</h6>
+	</div>
+</div>
+{% endfor %}
+{% endblock content %}
