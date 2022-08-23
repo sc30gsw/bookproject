@@ -11,4 +11,6 @@ urlpatterns = [
   path('book/create/', views.CreateBookView.as_view(), name='create-book'),
   # Book削除画面のルーティング
   path('book/<int:pk>/delete/', views.DeleteBookView.as_view(), name='delete-book'),
+  # Book更新画面のルーティング
+  path('book/<int:pk>/update/', views.UpdateBookView.as_view(), name='update-book'),
 ]
