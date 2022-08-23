@@ -73,3 +73,5 @@ class UpdateBookView(UpdateView):
   fields = ('title', 'text', 'category')
   # リダイレクト先
   success_url = reverse_lazy('list-book')
+  # テンプレートで使用するオブジェクト名
+  context_object_name: str = 'book'
